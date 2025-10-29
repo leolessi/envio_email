@@ -9,6 +9,18 @@ import smtplib
 import email.message
 
 
+lista_usuarios = [
+    {
+        "Usuario": "Leonardo",
+        "From": "leonardo@email.com",
+        "To": "destinatario@email.com",
+        "Cc": "emailcopia@email.com",
+        "Bcc": "emailcopiaoculta@email.com",
+        "Subject": "Commodo sint laboris ut id. Consequat dolore ex reprehenderit mollit. Commodo cillum labore enim deserunt elit non sunt anim.",
+    }
+]
+
+
 def enviar_email():
     msg = email.message.Message()
     msg["Subject"] = (
@@ -35,7 +47,7 @@ def enviar_email():
     # criptografa as informacoes dentro do servidor
     servidor.starttls()
     # ATENÇÃO: Não é recomendado, DE FORMA ALGUMA, deixar a senha exposta. Consulte README.md
-    servidor.login(msg["From"], senha_envio_emails)
+    servidor.login(msg["From"], "senha_envio_emails")
     servidor.send_message(msg)
     servidor.quit()
     print(f"E-mail enviado com sucesso de {msg['From']} para {msg['To']}")
