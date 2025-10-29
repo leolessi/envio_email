@@ -33,8 +33,8 @@ lista_usuarios = [
 ]
 
 
-def enviar_email(lista):
-    for usuario in lista_usuarios:
+def enviar_email(lista, senha):
+    for usuario in lista:
         msg = email.message.Message()
         msg["Subject"] = usuario["Subject"]
         msg["From"] = usuario["From"]
